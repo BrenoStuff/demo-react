@@ -1,7 +1,6 @@
 # FrontEnd React PJ3
 
 **Autor:** Breno Machado
-**Telegram:** [@EuBreno](https://t.me/eubreno)
 
 **Instituição:** IFSP - Caraguatatuba
 **Curso:** Técnico em Informática para Internet
