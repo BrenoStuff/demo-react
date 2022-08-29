@@ -2,8 +2,11 @@ import './Header.css'
 
 const Header = () => {
   return (
-    <header className='header-nav'>
-        Header
+    <header id='header-nav'>
+        <div className='container'>
+          <div>Logo</div>
+          <div>Menu</div>
+        </div>
     </header>
   )
 }

@@ -1,0 +1,10 @@
+.main-container {
+    width: 100%;
+    background: white;
+}
+
+.main-container .container{
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
