@@ -1,14 +1,62 @@
-#header-nav {
+.header-nav {
     background: #33312E;
     height: 60px;
     color: white;
 }
 
-#header-nav .container{
+.header-nav .container{
     width: 800px;
     height: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header-nav .container #nav-logo{
+    color: white;
+    text-decoration: none;
+}
+
+.header-nav .container .logotype {
+    display: flex;
+    align-items: center;
+}
+
+.header-nav .container .logotype .icon-logo{
+    width: 35px;
+    height: 35px;
+}
+
+.header-nav .container .logotype h1{
+    font-size: 1.3rem;
+    margin: 0 0 0 10px;
+}
+
+.header-nav .container .logotype h1{
+    font-size: 1.3rem;
+    margin: 0 0 0 10px;
+}
+
+.header-nav .container nav ul{
+    display: flex;
+}
+
+.header-nav .container nav ul li{
+    list-style-type: none;
+    margin: 0 0 0 20px;
+}
+
+.header-nav .container nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+.header-nav .container nav ul li a:hover{
+    text-decoration: none;
+    color: rgb(4, 134, 173);
+}
+
+.header-nav .container nav ul li a.active{
+    color: rgb(100, 217, 253);
 }
