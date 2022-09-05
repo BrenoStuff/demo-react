@@ -17,3 +17,11 @@ h1 {
 p {
   margin: 5px auto;
 }
+
+a{
+  color: rgb(0, 172, 224);
+}
+
+a:hover{
+  color: rgb(4, 134, 173);
+}
