@@ -2,10 +2,10 @@
 
 **Autor:** Breno Machado
 
-**Instituição:** IFSP - Caraguatatuba
-**Curso:** Técnico em Informática para Internet
-**Disciplina:** Projeto Integrador III
-**Professor:** Renan Cavichi
+Instituição: IFSP - Caraguatatuba
+Curso: Técnico em Informática para Internet
+Disciplina: Projeto Integrador III
+Professor: Renan Cavichi
 
 ## Descrição
 
