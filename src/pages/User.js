@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import MainContainer from '../components/MainContainer'
 import { useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { API_PATH } from '../config'
 
 const User = () => {
 	const { id } = useParams()
@@ -10,7 +11,7 @@ const User = () => {
   const [user, setUser] = useState({})
 
   const requestUserById = async (id) => {
-		const response = await fetch(`http://localhost/PJ3/ifsp-api-php/user/by-id?id=${id}`)
+		const response = await fetch(`${API_PATH}user/by-id?id=${id}`)
     const result = await response.json()
     console.log(result?.success?.message)
     if(result?.error){

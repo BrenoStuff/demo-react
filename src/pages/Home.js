@@ -4,13 +4,14 @@ import MainContainer from '../components/MainContainer'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CardUser from '../components/CardUser'
+import { API_PATH } from '../config'
 
 const Home = () => {
 
   const [users, setUsers] = useState([])
 
   const requestUsers = async () => {
-    const response = await fetch('http://localhost/PJ3/ifsp-api-php/user/list')
+    const response = await fetch(`${API_PATH}user/list`)
     const result = await response.json()
     console.log(result.success.message)
     setUsers(result.data)

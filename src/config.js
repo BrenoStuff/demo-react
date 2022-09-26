@@ -1,0 +1,1 @@
+export const API_PATH = 'http://localhost/PJ3/ifsp-api-php/'

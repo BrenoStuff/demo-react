@@ -2,9 +2,10 @@ import { useNavigate } from "react-router-dom"
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MainContainer from '../components/MainContainer'
+import { API_PATH } from '../config'
 
 const SignUp = () => {
-    
+
     const navigate = useNavigate()
 
     const createUser = async (user) => {
@@ -13,7 +14,7 @@ const SignUp = () => {
         formUser.append("email", user.email)
         formUser.append("pass", user.pass)
         formUser.append("avatar", user.avatar)
-        const response = await fetch('http://localhost/PJ3/ifsp-api-php/user/sign-up', {
+        const response = await fetch(`${API_PATH}user/sign-up`, {
             method: 'POST',
             body: formUser
         })

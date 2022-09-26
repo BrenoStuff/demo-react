@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import {TbTrash as IconTrash} from 'react-icons/tb'
+import { API_PATH } from '../config'
 
 const CardUser = ({avatarUrl, name, children, id, users, setUsers}) => {
 
     const {card, avatar, box, userName, text, buttonLink} = style
 
     const deleteUser = async (id) => {
-        const response = await fetch('http://localhost/PJ3/ifsp-api-php/user/delete',{
+        const response = await fetch(`${API_PATH}user/delete`,{
             method: 'DELETE',
             body: JSON.stringify({id: id})
         })
