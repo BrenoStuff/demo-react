@@ -16,7 +16,7 @@ const SignUp = () => {
         const result = await response.json()
         if(result?.success){
             navigate('/')
-            console.log('registrado')
+            console.log('User added to database successfully')
         }
     }
   
