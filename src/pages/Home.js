@@ -30,6 +30,24 @@ const Home = () => {
     setUserToEdit({...userToEdit, [event.target.name]: event.target.value })
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const response = await fetch(`${API_PATH}user/update`, {
+      method: 'PUT',
+      body: JSON.stringify(userToEdit)
+    })
+    const result = await response.json()
+    if(result?.success && result?.user){
+      const userUpdated = result.user
+      const usersUpdated = users.map((user) => {
+        return user.id === userUpdated.id ? userUpdated : user  
+      })
+      setUsers(usersUpdated)
+      setShowModal(false)
+    }
+    console.log(JSON.stringify(result))
+}
+
   useEffect(() => {
     requestUsers()
   },[])
@@ -66,7 +84,7 @@ const Home = () => {
 
     <Modal showModal={showModal} setShowModal={setShowModal}>
           <h1>Edit User</h1>
-          <form >
+          <form onSubmit={(event) => handleSubmit(event)}>
               <input type="hidden" name="id" value={userToEdit.id}/>
               <p>Name: <input type="text" name="name" value={userToEdit.name} onChange={(event)=>handleChange(event)}/></p>
               <p>Email: <input type="text" name="email" value={userToEdit.email} onChange={(event)=>handleChange(event)}/></p>
