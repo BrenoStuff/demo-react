@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'
-import './Home.css'
 import MainContainer from '../components/MainContainer'
 import Header from '../components/Header'
 import Footer from '../components/Footer'

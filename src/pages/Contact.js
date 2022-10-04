@@ -1,4 +1,3 @@
-import './Contact.css'
 import { useState, useEffect} from 'react' 
 import { Link } from 'react-router-dom'
 import MainContainer from '../components/MainContainer'
