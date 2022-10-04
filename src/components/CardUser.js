@@ -29,10 +29,9 @@ const CardUser = ({avatarUrl, name, children, id, users, setUsers, setShowModal,
             avatar: avatarUrl,
           })
     }
-  
-    return (
 
-				<div style={card}>
+    return (
+		<div style={card}>
           <img style={avatar} src={avatarUrl} alt="Foto do Fulano"/>
           <div style={box}>
             <Link to={`/user/${id}`}>
@@ -44,7 +43,6 @@ const CardUser = ({avatarUrl, name, children, id, users, setUsers, setShowModal,
             <IconEdit style={buttonLink} onClick={() => handleEdit()} />
           </div>
       	</div>
-
     )
   }
   

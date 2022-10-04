@@ -4,7 +4,8 @@ import {BiLoaderAlt as LoadIcon} from 'react-icons/bi'
 const ButtonLoading = ({type = 'button', isLoading, children}) => {
     return (
         <LoadingButton type={type} disabled={isLoading}>
-            {isLoading ? <Loader/> : children}
+            {children}
+			{isLoading && <Loader />}
         </LoadingButton>
     )
 }
@@ -23,25 +24,29 @@ const Loader = styled(LoadIcon)`
     animation: ${rotate} 1s linear infinite;
     width: 24px;
     height: 24px;
+    position: absolute;
+	left: calc(50% - 12px);
+	top: calc(50% - 12px);
 `
 
 const LoadingButton = styled.button`
     background: rgb(0, 172, 224);
-    border-radius: 8px;
     color: #fff;
+    position: relative;
+    border-radius: 8px;
     font-weight: bold;
     padding: 5px 20px;
-    width: 190px;
-    height: 35px;
+	height: 35px;
     border: none;
     cursor: pointer;
     &:hover {
-        background: rgb(4, 134, 173);
-    }
-    &:disabled{
-        cursor: default;
-        background: rgb(0, 172, 224);
-    }
+		background: #c13a00;
+	}
+	&:disabled{
+		cursor: default;
+		color: #fd8d5c;
+		background: #fd8d5c;
+	}
 `
 
 export default ButtonLoading
