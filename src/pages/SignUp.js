@@ -1,11 +1,14 @@
+import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MainContainer from '../components/MainContainer'
+import ButtonLoading from "../components/ButtonLoading"
 import { API_PATH } from '../config'
 
 const SignUp = () => {
 
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
 
     const createUser = async (user) => {
@@ -18,10 +21,12 @@ const SignUp = () => {
             navigate('/')
             console.log('User added to database successfully')
         }
+        setIsLoading(false)
     }
   
   
     const handleSubmit = (event) => {
+        setIsLoading(true)
         event.preventDefault()
         const { name, email, pass, avatar } = event.target
         createUser({
@@ -43,7 +48,7 @@ const SignUp = () => {
                     <p>Email: <input type="text" name="email"/></p>
                     <p>Pass: <input type="password" name="pass"/></p>
                     <p>Avatar: <input type="text" name="avatar"/></p>
-                    <input type="submit" value="Send" />
+                    <ButtonLoading type="submit" isLoading={isLoading}>Send</ButtonLoading>
                 </form>
             </MainContainer>
             <Footer />

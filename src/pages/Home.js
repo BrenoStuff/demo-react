@@ -5,11 +5,14 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import CardUser from '../components/CardUser'
 import Modal from '../components/Modal'
+import ButtonLoading from '../components/ButtonLoading'
 import { API_PATH } from '../config'
 
 const Home = () => {
 
   const [users, setUsers] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const [userToEdit, setUserToEdit] = useState({
     id: "",
@@ -17,7 +20,6 @@ const Home = () => {
     email: "",
     avatar: "",
   })
-  const [showModal, setShowModal] = useState(false)
 
   const requestUsers = async () => {
     const response = await fetch(`${API_PATH}user/list`)
@@ -31,6 +33,7 @@ const Home = () => {
   }
 
   const handleSubmit = async (event) => {
+    setIsLoading(true)
     event.preventDefault()
     const response = await fetch(`${API_PATH}user/update`, {
       method: 'PUT',
@@ -46,6 +49,7 @@ const Home = () => {
       setShowModal(false)
     }
     console.log(JSON.stringify(result))
+    setIsLoading(false)
 }
 
   useEffect(() => {
@@ -63,9 +67,7 @@ const Home = () => {
         <p>Em 2015, o Facebook anunciou o módulo React Native, que em conjunto com o React, possibilita o desenvolvimento de aplicativos para Android e iOS utilizando componentes de interface de usuário nativos de ambas plataformas, sem precisar recorrer ao HTML.[7]</p>
         <p>Na pesquisa de 2018 sobre hábitos de desenvolvedores do site Stack Overflow, o React foi a terceira biblioteca ou framework[8] mais citado pelos usuários e desenvolvedores profissionais, ficando atrás somente do Node.js e Angular, respectivamente.[9]</p>
 
-        <p>Lista usuários API Git Hub:</p>
-        <button onClick={()=>setShowModal(true)}>edit</button>
-
+        <h3>Lista de usuários:</h3>
         {
           users.length === 0
           ? <p>Nenhum usuário</p>
@@ -89,7 +91,7 @@ const Home = () => {
               <p>Name: <input type="text" name="name" value={userToEdit.name} onChange={(event)=>handleChange(event)}/></p>
               <p>Email: <input type="text" name="email" value={userToEdit.email} onChange={(event)=>handleChange(event)}/></p>
               <p>Avatar: <input type="text" name="avatar" value={userToEdit.avatar} onChange={(event)=>handleChange(event)}/></p>
-              <input type="submit" value="Send" />
+              <ButtonLoading type="submit" isLoading={isLoading}>Update</ButtonLoading>
           </form>
       </Modal>
     </>
