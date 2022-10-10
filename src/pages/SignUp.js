@@ -20,30 +20,29 @@ const SignUp = () => {
             body: JSON.stringify(user)
         })
 
-        const result = await response.json()
-        if (result?.success) {
-            setSuccess(true)
-          } else if(result?.error){
-            if(result?.error?.message){
-              setError({
-                hasError: true,
-                message: result.error.message 
-              })
-            } else{
-              setError({...error, hasError: true})
-            }
-          }
-          setIsLoading(false)
+    const result = await response.json()
+    if (result?.success) {
+      setSuccess(true)
+    } else if(result?.error){
+      if(result?.error?.message){
+        setError({
+          hasError: true,
+          message: result.error.message 
+        })
+      } else{
+        setError({...error, hasError: true})
+      }
     }
-  
+    setIsLoading(false)
+  }
   
     const handleSubmit = (event) => {
-        setIsLoading(true)
-    setSuccess(false)
-    setError({
-      hasError: false,
-      message: "Erro no servidor! Por favor, tente novamente!"
-    })
+		setIsLoading(true)
+		setSuccess(false)
+		setError({
+		hasError: false,
+		message: "Erro no servidor! Por favor, tente novamente!"
+		})
         event.preventDefault()
         const { name, email, pass, avatar } = event.target
         createUser({

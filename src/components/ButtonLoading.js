@@ -40,12 +40,12 @@ const LoadingButton = styled.button`
     border: none;
     cursor: pointer;
     &:hover {
-		background: #c13a00;
+		background: rgb(4, 134, 173);
 	}
 	&:disabled{
 		cursor: default;
-		color: #fd8d5c;
-		background: #fd8d5c;
+		color: rgb(0, 172, 224);
+		background: rgb(0, 172, 224);
 	}
 `
 
